@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 1rem 3rem;
+}
+
+body {
+  background: #ee369a;
+  color: white;
+  font-family: -apple-system, helvetica neue, sans-serif;
+}
+
+h1 {
+  font-weight: lighter;
+}
+
+.row {
+  display: flex;
+  margin: 0 0 20px 0;
+}
+
+.col {
+  flex: 1;
+  padding: 20px;
+}
