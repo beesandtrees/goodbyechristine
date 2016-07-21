@@ -6,25 +6,196 @@ body,
 html {
   height: 100%;
   margin: 0;
-  padding: 1rem 3rem;
+  font-size: 10px;
 }
 
 body {
   background: #ee369a;
-  color: white;
+  color: #333;
   font-family: -apple-system, helvetica neue, sans-serif;
+  font-size: 1.6rem;
 }
 
 h1 {
   font-weight: lighter;
 }
 
-.row {
-  display: flex;
-  margin: 0 0 20px 0;
+.background {
+  height: 100vh;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
 }
 
-.col {
-  flex: 1;
-  padding: 20px;
+.infobar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+  padding: 1rem;
+}
+
+button {
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  font-size: 1.6rem;
+  outline: none;
+  outline: 0;
+  padding: 0;
+  position: fixed;
+  text-align: center;
+}
+
+/* full grid */
+.size-0 {
+  color: white;
+  font-size: 8rem;
+  width: 100%;
+  height: 96vh;
+}
+
+/* one cell */
+.size-1 {
+  width: 25%;
+  height: 24vh;
+}
+
+/* two across two down */
+.size-2 {
+  width: 50%;
+  height: 48vh;
+}
+
+/* three across three down */
+.size-3 {
+  width: 75%;
+  height: 72vh;
+}
+
+/* one across 2 down */
+.size-4 {
+  width: 25%;
+  height: 48vh;
+}
+
+/* one across 2 down */
+.size-4 {
+  width: 25%;
+  height: 48vh;
+}
+
+/* two across 100% down */
+.size-9 {
+  width: 50%;
+  height: 96vh;
+}
+
+/*
+twoAcross,  // size-5 two across one down
+oneRow,     // size-6 100% across one down
+twoRows,    // size-7 100% across two down
+oneCol,     // size-8 one across 100% down
+twoCol      // size-9 two across 100% down*/
+
+/* INLINE */
+.size-10 {
+  font-weight: bold;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.size-10 .go {
+  color: #ee369a;
+}
+
+
+
+
+
+/*
+B1,       // pos-4
+B2,       // pos-5
+B3,       // pos-6
+B4,       // pos-7
+C1,       // pos-8
+C2,       // pos-9
+C3,       // pos-10
+C4,       // pos-11
+D1,       // pos-12
+D2,       // pos-13
+D3,       // pos-14
+D4,       // pos-15
+inline,   // pos-16
+midCenter // pos-17*/
+
+/* TOP ROW */
+.pos-0 {
+  top: 0;
+  left: 0;
+}
+
+.pos-1 {
+  top: 0;
+  left: 25%;
+}
+
+.pos-2 {
+  top: 0;
+  left: 50%;
+}
+
+.pos-3 {
+  top: 0;
+  right: 0;
+}
+
+/* 2nd Row */
+.pos-4 {
+  top: 25%;
+  left: 0;
+}
+
+.pos-5 {
+  top: 25%;
+  left: 25%;
+}
+
+.pos-6 {
+  top: 25%;
+  left: 50%;
+}
+
+.pos-7 {
+  top: 25%;
+  right: 0;
+}
+
+/* 3rd Row */
+.pos-8 {
+  top: 50%;
+  left: 0;
+}
+
+.pos-9 {
+  top: 50%;
+  left: 25%;
+}
+
+.pos-10 {
+  top: 50%;
+  left: 50%;
+}
+
+.pos-11 {
+  top: 50%;
+  right: 0;
+}
+
+/* INLINE */
+.pos-16 {
+  position: static;
 }
