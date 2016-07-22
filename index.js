@@ -59,6 +59,7 @@ var Scene = (function () {
 }());
 function clearScene() {
     mainAppArea.style.backgroundImage = "";
+    mainAppArea.classList.remove("textOnly");
     clickGrid.innerHTML = "";
     infoTakeover.innerHTML = "";
 }
@@ -83,6 +84,9 @@ function backgroundImage(scene) {
     if (scene.imageName !== null) {
         mainAppArea.style.backgroundImage = "url(img/backgrounds/" + scene.imageName + ".jpg)";
     }
+    if (scene.type == levelType.textOnly) {
+        mainAppArea.className += " textOnly";
+    }
 }
 function initInfo(scene) {
     if (scene.title !== null) {
@@ -103,7 +107,7 @@ function initGridButtons(scene) {
             but.className += "pos-" + sceneExit.position;
             but.className += " size-" + sceneExit.size;
             if (sceneExit.hasImage == true) {
-                but.style.backgroundImage = "url(img/buttons/" + scene.imageName + "_" + sceneExit.position + ".png)";
+                but.style.backgroundImage = "url(img/buttons/" + scene.imageName + ".jpg)";
             }
             but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
             if (sceneExit.scene == null) {
@@ -129,18 +133,23 @@ function initGridButtons(scene) {
         var but = document.createElement("button");
         but.value = "Start Over";
         but.innerHTML = "Start Over >";
-        but.className += "pos-center";
+        but.className += "pos-0";
+        but.className += " size-0";
         but.onclick = function () { loadScene(Home); };
         clickGrid.appendChild(but);
     }
 }
-var EndCredits = new Scene(null, "Goodbye!! <3", "Game Over", levelType.basic, null);
-var Shopping = new Scene(null, "We Love Christine", "Start Game", levelType.basic, [{ title: "Start Game", size: buttonSize.full, position: gameGrid.midCenter, hasImage: false, scene: EndCredits }]);
+var EndCredits = new Scene(null, null, "Game Over", levelType.basic, null);
+var Shopping = new Scene(null, null, "Start Game", levelType.basic, [{ title: "Start Game", size: buttonSize.full, position: gameGrid.midCenter, hasImage: false, scene: EndCredits }]);
+var Concession = new Scene("concessionStand", "Well this looks really nice.", "Buy some popcorn", levelType.basic, [
+    { title: "Go in anyway - it's an adventure!", size: buttonSize.oneCell, position: gameGrid.A1, hasImage: true, scene: EndCredits },
+    { title: "Try somewhere else.", size: buttonSize.oneCol, position: gameGrid.A2, hasImage: true, scene: EndCredits }
+]);
 var Movies = new Scene("sleazyTheatre", "Hmmm, this place looks pretty creepy. I'm not sure I should go in there.", "Go In", levelType.basic, [
-    { title: "Go in anyway - it's an adventure!", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: EndCredits },
+    { title: "Go in anyway - it's an adventure!", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: Concession },
     { title: "Try somewhere else.", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: EndCredits }
 ]);
-var Home = new Scene(null, "We Love Christine!", "Start Game", levelType.basic, [
+var Home = new Scene(null, "We Love Christine!", "Start Game", levelType.textOnly, [
     { title: "Go to the movies", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: Movies },
     { title: "Go shopping", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: Shopping }
 ]);
