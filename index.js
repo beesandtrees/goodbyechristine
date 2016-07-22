@@ -74,8 +74,8 @@ function updateInfobar(scene, title) {
     if (scene !== null) {
         var but = document.createElement("button");
         but.value = title;
-        but.className += "pos-inline";
-        but.innerHTML = scene.linkText + " >";
+        but.className += "pos-16 size-10";
+        but.innerHTML = scene.linkText + " <span class=\"go\">></span>";
         but.onclick = function () { loadScene(scene); };
         infoBar.appendChild(but);
     }
@@ -109,17 +109,20 @@ function initGridButtons(scene) {
             if (sceneExit.hasImage == true) {
                 but.style.backgroundImage = "url(img/buttons/" + scene.imageName + ".jpg)";
             }
-            but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
-            if (sceneExit.scene == null) {
+            if (sceneExit.position !== gameGrid.inline && scene.type == levelType.basic) {
                 but.onclick = function () { updateInfobar(sceneExit.scene, sceneExit.title); };
             }
             else {
                 but.onclick = function () { loadScene(sceneExit.scene); };
             }
-            if (sceneExit.position == 16) {
+            if (sceneExit.position == gameGrid.inline) {
+                but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
                 infoBar.appendChild(but);
             }
             else {
+                if (scene.type == levelType.textOnly) {
+                    but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
+                }
                 clickGrid.appendChild(but);
             }
         };
@@ -142,8 +145,9 @@ function initGridButtons(scene) {
 var EndCredits = new Scene(null, null, "Game Over", levelType.basic, null);
 var Shopping = new Scene(null, null, "Start Game", levelType.basic, [{ title: "Start Game", size: buttonSize.full, position: gameGrid.midCenter, hasImage: false, scene: EndCredits }]);
 var Concession = new Scene("concessionStand", "Well this looks really nice.", "Buy some popcorn", levelType.basic, [
-    { title: "Go in anyway - it's an adventure!", size: buttonSize.oneCell, position: gameGrid.A1, hasImage: true, scene: EndCredits },
-    { title: "Try somewhere else.", size: buttonSize.oneCol, position: gameGrid.A2, hasImage: true, scene: EndCredits }
+    { title: "I'm ready to order!", size: buttonSize.oneCol, position: gameGrid.A3, hasImage: true, scene: EndCredits },
+    { title: "I definitely want some popcorn.", size: buttonSize.oneCol, position: gameGrid.A4, hasImage: true, scene: EndCredits },
+    { title: "Specials at a movie theater?", size: buttonSize.oneCol, position: gameGrid.A2, hasImage: true, scene: EndCredits }
 ]);
 var Movies = new Scene("sleazyTheatre", "Hmmm, this place looks pretty creepy. I'm not sure I should go in there.", "Go In", levelType.basic, [
     { title: "Go in anyway - it's an adventure!", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: Concession },

@@ -89,8 +89,8 @@ function updateInfobar(scene: Scene, title: string) {
     if (scene !== null) {
         var but = document.createElement("button");
         but.value = title;
-        but.className += "pos-inline";
-        but.innerHTML = scene.linkText + " >";
+        but.className += "pos-16 size-10";
+        but.innerHTML = scene.linkText + " <span class=\"go\">></span>";
         but.onclick = function() { loadScene(scene) };
         infoBar.appendChild(but);
     }
@@ -101,7 +101,7 @@ function backgroundImage(scene: Scene) {
         mainAppArea.style.backgroundImage = "url(img/backgrounds/" + scene.imageName + ".jpg)";
     }
     if (scene.type == levelType.textOnly) {
-      mainAppArea.className += " textOnly";
+        mainAppArea.className += " textOnly";
     }
 }
 
@@ -123,21 +123,24 @@ function initGridButtons(scene: Scene) {
             but.value = sceneExit.title;
             but.className += "pos-" + sceneExit.position;
             but.className += " size-" + sceneExit.size;
+
             if (sceneExit.hasImage == true) {
                 but.style.backgroundImage = "url(img/buttons/" + scene.imageName + ".jpg)";
             }
 
-            but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
-
-            if (sceneExit.scene == null) {
-              but.onclick = function() { updateInfobar(sceneExit.scene, sceneExit.title) };
+            if (sceneExit.position !== gameGrid.inline && scene.type == levelType.basic) {
+                but.onclick = function() { updateInfobar(sceneExit.scene, sceneExit.title) };
             } else {
-              but.onclick = function() { loadScene(sceneExit.scene) };
+                but.onclick = function() { loadScene(sceneExit.scene) };
             }
 
-            if (sceneExit.position == 16) {
+            if (sceneExit.position == gameGrid.inline) {
+                but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
                 infoBar.appendChild(but);
             } else {
+                if (scene.type == levelType.textOnly) {
+                    but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
+                }
                 clickGrid.appendChild(but);
             }
         }
@@ -174,8 +177,9 @@ const Concession = new Scene(
     "Buy some popcorn",
     levelType.basic,
     [
-      { title: "Go in anyway - it's an adventure!", size: buttonSize.oneCell, position: gameGrid.A1, hasImage: true, scene: EndCredits },
-      { title: "Try somewhere else.", size: buttonSize.oneCol, position: gameGrid.A2, hasImage: true, scene: EndCredits }
+        { title: "I'm ready to order!", size: buttonSize.oneCol, position: gameGrid.A3, hasImage: true, scene: EndCredits },
+        { title: "I definitely want some popcorn.", size: buttonSize.oneCol, position: gameGrid.A4, hasImage: true, scene: EndCredits },
+        { title: "Specials at a movie theater?", size: buttonSize.oneCol, position: gameGrid.A2, hasImage: true, scene: EndCredits }
     ]
 );
 
@@ -185,8 +189,8 @@ const Movies = new Scene(
     "Go In",
     levelType.basic,
     [
-      { title: "Go in anyway - it's an adventure!", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: Concession },
-      { title: "Try somewhere else.", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: EndCredits }
+        { title: "Go in anyway - it's an adventure!", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: Concession },
+        { title: "Try somewhere else.", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: EndCredits }
     ]
 );
 
@@ -196,8 +200,8 @@ const Home = new Scene(
     "Start Game",
     levelType.textOnly,
     [
-      { title: "Go to the movies", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: Movies },
-      { title: "Go shopping", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: Shopping }
+        { title: "Go to the movies", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: Movies },
+        { title: "Go shopping", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: Shopping }
     ]
 );
 
