@@ -137,23 +137,6 @@ button:hover {
     top: -1px;
 }
 
-/*
-B1,       // pos-4
-B2,       // pos-5
-B3,       // pos-6
-B4,       // pos-7
-C1,       // pos-8
-C2,       // pos-9
-C3,       // pos-10
-C4,       // pos-11
-D1,       // pos-12
-D2,       // pos-13
-D3,       // pos-14
-D4,       // pos-15
-inline,   // pos-16
-midCenter // pos-17*/
-
-
 /* TOP ROW */
 
 .pos-0 {
@@ -167,12 +150,13 @@ midCenter // pos-17*/
 }
 .pos-2 {
     top: 0;
-    left: 50%;
+    left: 50vw;
     background-position: -50vw 0;
 }
 .pos-3 {
     top: 0;
     right: 0;
+    background-position: -75vw 0;
 }
 
 /* 2nd Row */
@@ -180,43 +164,49 @@ midCenter // pos-17*/
 .pos-4 {
     top: 24vh;
     left: 0;
-    background-position: 0 25%;
+    background-position: 0 -24vh;
 }
 .pos-5 {
     top: 24vh;
     left: 25vw;
-    background-position: -25vw 25%;
+    background-position: -25vw -24vh;
 }
 .pos-6 {
     top: 24vh;
-    left: 50%;
+    left: 50vw;
+    background-position: -50vw -24vh;
 }
 .pos-7 {
     top: 24vh;
     right: 0;
+    background-position: -75vw -24vh;
 }
 
 /* 3rd Row */
 
 .pos-8 {
-    top: 50%;
+    top: 48vh;
     left: 0;
+    background-position: 0 -48vh;
 }
 .pos-9 {
-    top: 50%;
-    left: 25%;
+    top: 48vh;
+    left: 25vw;
+    background-position: -25vw -48vh;
 }
 .pos-10 {
-    top: 50%;
-    left: 50%;
+    top: 48vh;
+    left: 50vw;
+    background-position: -50vw -48vh;
 }
 .pos-11 {
-    top: 50%;
+    top: 48vh;
     right: 0;
+    background-position: -75vw -48vh;
 }
 
 /* INLINE */
 
 .pos-16 {
-    position: static;
+  position: static;
 }
