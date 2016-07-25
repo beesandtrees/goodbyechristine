@@ -111,11 +111,11 @@ class Scene {
                 }
 
                 if (sceneExit.position == gameGrid.inline) {
-                    but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
+                    but.innerHTML = sceneExit.title + "&nbsp;<span class=\"go\">></span>";
                     infoBar.appendChild(but);
                 } else {
                     if (this.type == levelType.textOnly) {
-                        but.innerHTML = sceneExit.title + " <span class=\"go\">></span>";
+                        but.innerHTML = sceneExit.title + "&nbsp;<span class=\"go\">></span>";
                     }
                     clickGrid.appendChild(but);
                 }
@@ -172,41 +172,95 @@ var sceneArray = {
     "Home": new Scene(
         "Home",
         null,
-        "We Love Christine!",
+        "Monday morning. You don't have to go to work today! But you do have a job interview.",
         "Start Game",
-        levelType.textOnly),
+        levelType.textOnly
+    ),
     "JobInterview": new Scene(
         "JobInterview",
-        "sleazyTheatre",
+        null,
         "Hmmm, this place looks pretty creepy. I'm not sure I should go in there.",
         "Go In",
-        levelType.basic),
+        levelType.textOnly
+    ),
     "Shopping": new Scene(
         "Shopping",
-        "sleazyTheatre",
-        "Hmmm, this place looks pretty creepy. I'm not sure I should go in there.",
+        "shopping",
+        "I'm pretty thristy, but it looks like Bloomingdale's is having a huge sale!",
         "Go In",
-        levelType.basic),
+        levelType.basic
+    ),
     "Starbucks": new Scene(
         "Starbucks",
-        "concessionStand",
-        "Well this looks really nice.",
-        "Buy some popcorn",
-        levelType.basic),
+        null,
+        "You order a Caramel Macchiato in honor of Melissa bc it is toally her favorite. Unfortunately it's barely sweet at all - and what's the point of the caramel part if it isn't sweet??",
+        "Buy some coffee",
+        levelType.textOnly
+    ),
     "ReturnStarbucks": new Scene(
         "ReturnStarbucks",
         null,
         null,
         "Game Over",
-        levelType.basic
+        levelType.textOnly
+    ),
+    "Security": new Scene(
+        "ReturnStarbucks",
+        null,
+        null,
+        "Game Over",
+        levelType.textOnly
+    ),
+    "Bloomingdales": new Scene(
+        "ReturnStarbucks",
+        null,
+        null,
+        "Buy some clothes",
+        levelType.textOnly
+    ),
+    "Manager": new Scene(
+        "ReturnStarbucks",
+        null,
+        null,
+        "Game Over",
+        levelType.textOnly
+    ),
+    "JeansInterview": new Scene(
+        "ReturnStarbucks",
+        null,
+        null,
+        "Game Over",
+        levelType.textOnly
+    ),
+    "CheckBack": new Scene(
+        "ReturnStarbucks",
+        null,
+        null,
+        "Game Over",
+        levelType.textOnly
+    ),
+    "CEO": new Scene(
+        "ReturnStarbucks",
+        null,
+        null,
+        "Game Over",
+        levelType.textOnly
     )
 };
 
 exitArray["Home"] = [
-    { title: "Job Interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
-    { title: "Go shopping", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
+    { title: "Hang out at home then head out to the interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
+    { title: "Go shopping for new clothes", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
+];
+exitArray["Shopping"] = [
+    { title: "Get a latte before starting the shopping spree", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "Starbucks" },
+    { title: "Head over to Bloomingdale's to get a new outfit", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Bloomingdales" }
+];
+exitArray["Starbucks"] = [
+    { title: "Take it back and make them put more SUGAR in it!", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "ReturnStarbucks" },
+    { title: "Say forget it and go to Bloomingdale's", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Bloomingdales" }
 ];
 exitArray["JobInterview"] = [
-  { title: "Job Interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
-  { title: "Go shopping", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
+    { title: "Job Interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
+    { title: "Go shopping", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
 ];
