@@ -101,7 +101,7 @@ class Scene {
                 but.className += " size-" + sceneExit.size;
 
                 if (sceneExit.hasImage == true) {
-                    but.style.backgroundImage = "url(img/buttons/" + this.imageName + ".jpg)";
+                    but.style.backgroundImage = "url(img/buttons/" + this.imageName + ".png)";
                 }
 
                 if (sceneExit.position !== gameGrid.inline && this.type == levelType.basic) {
@@ -193,7 +193,7 @@ var sceneArray = {
     "Starbucks": new Scene(
         "Starbucks",
         null,
-        "You order a Caramel Macchiato in honor of Melissa bc it is toally her favorite. Unfortunately it's barely sweet at all - and what's the point of the caramel part if it isn't sweet??",
+        "You order a Caramel Macchiato in honor of Melissa bc it is totally her favorite. Unfortunately it's barely sweet at all - and what's the point of buying a caramel macchiato if it isn't sweet??",
         "Buy some coffee",
         levelType.textOnly
     ),
@@ -253,8 +253,8 @@ exitArray["Home"] = [
     { title: "Go shopping for new clothes", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
 ];
 exitArray["Shopping"] = [
-    { title: "Get a latte before starting the shopping spree", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "Starbucks" },
-    { title: "Head over to Bloomingdale's to get a new outfit", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Bloomingdales" }
+    { title: "Get a latte before starting the shopping spree", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: true, scene: "Starbucks" },
+    { title: "Head over to Bloomingdale's to get a new outfit", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: true, scene: "Bloomingdales" }
 ];
 exitArray["Starbucks"] = [
     { title: "Take it back and make them put more SUGAR in it!", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "ReturnStarbucks" },

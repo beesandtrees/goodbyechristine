@@ -70,7 +70,7 @@ var Scene = (function () {
                 but.className += "pos-" + sceneExit.position;
                 but.className += " size-" + sceneExit.size;
                 if (sceneExit.hasImage == true) {
-                    but.style.backgroundImage = "url(img/buttons/" + this_1.imageName + ".jpg)";
+                    but.style.backgroundImage = "url(img/buttons/" + this_1.imageName + ".png)";
                 }
                 if (sceneExit.position !== gameGrid.inline && this_1.type == levelType.basic) {
                     but.onclick = function () { updateInfobar(sceneArray[sceneExit.scene], sceneExit.title); };
@@ -143,7 +143,7 @@ var sceneArray = {
     "Home": new Scene("Home", null, "Monday morning. You don't have to go to work today! But you do have a job interview.", "Start Game", levelType.textOnly),
     "JobInterview": new Scene("JobInterview", null, "Hmmm, this place looks pretty creepy. I'm not sure I should go in there.", "Go In", levelType.textOnly),
     "Shopping": new Scene("Shopping", "shopping", "I'm pretty thristy, but it looks like Bloomingdale's is having a huge sale!", "Go In", levelType.basic),
-    "Starbucks": new Scene("Starbucks", null, "You order a Caramel Macchiato in honor of Melissa bc it is toally her favorite. Unfortunately it's barely sweet at all - and what's the point of the caramel part if it isn't sweet??", "Buy some coffee", levelType.textOnly),
+    "Starbucks": new Scene("Starbucks", null, "You order a Caramel Macchiato in honor of Melissa bc it is totally her favorite. Unfortunately it's barely sweet at all - and what's the point of buying a caramel macchiato if it isn't sweet??", "Buy some coffee", levelType.textOnly),
     "ReturnStarbucks": new Scene("ReturnStarbucks", null, null, "Game Over", levelType.textOnly),
     "Security": new Scene("ReturnStarbucks", null, null, "Game Over", levelType.textOnly),
     "Bloomingdales": new Scene("ReturnStarbucks", null, null, "Buy some clothes", levelType.textOnly),
@@ -157,8 +157,8 @@ exitArray["Home"] = [
     { title: "Go shopping for new clothes", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
 ];
 exitArray["Shopping"] = [
-    { title: "Get a latte before starting the shopping spree", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "Starbucks" },
-    { title: "Head over to Bloomingdale's to get a new outfit", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Bloomingdales" }
+    { title: "Get a latte before starting the shopping spree", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: true, scene: "Starbucks" },
+    { title: "Head over to Bloomingdale's to get a new outfit", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: true, scene: "Bloomingdales" }
 ];
 exitArray["Starbucks"] = [
     { title: "Take it back and make them put more SUGAR in it!", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "ReturnStarbucks" },
