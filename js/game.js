@@ -72,19 +72,14 @@ var Scene = (function () {
                 if (sceneExit.hasImage == true) {
                     but.style.backgroundImage = "url(img/buttons/" + this_1.imageName + ".png)";
                 }
-                if (sceneExit.position !== gameGrid.inline && this_1.type == levelType.basic) {
-                    but.onclick = function () { updateInfobar(sceneArray[sceneExit.scene], sceneExit.title); };
-                }
-                else {
-                    but.onclick = function () { loadScene(sceneArray[sceneExit.scene]); };
-                }
+                but.onclick = function () { loadScene(sceneArray[sceneExit.scene]); };
                 if (sceneExit.position == gameGrid.inline) {
                     but.innerHTML = sceneExit.title + "&nbsp;<span class=\"go\">></span>";
                     infoBar.appendChild(but);
                 }
                 else {
                     if (this_1.type == levelType.textOnly) {
-                        but.innerHTML = sceneExit.title + "&nbsp;<span class=\"go\">></span>";
+                        but.innerHTML = sceneExit.title;
                     }
                     clickGrid.appendChild(but);
                 }
@@ -141,16 +136,17 @@ function backgroundImage(scene) {
 }
 var sceneArray = {
     "Home": new Scene("Home", null, "Monday morning. You don't have to go to work today! But you do have a job interview.", "Start Game", levelType.textOnly),
-    "JobInterview": new Scene("JobInterview", null, "Hmmm, this place looks pretty creepy. I'm not sure I should go in there.", "Go In", levelType.textOnly),
-    "Shopping": new Scene("Shopping", "shopping", "I'm pretty thristy, but it looks like Bloomingdale's is having a huge sale!", "Go In", levelType.basic),
-    "Starbucks": new Scene("Starbucks", null, "You order a Caramel Macchiato in honor of Melissa bc it is totally her favorite. Unfortunately it's barely sweet at all - and what's the point of buying a caramel macchiato if it isn't sweet??", "Buy some coffee", levelType.textOnly),
-    "ReturnStarbucks": new Scene("ReturnStarbucks", null, null, "Game Over", levelType.textOnly),
-    "Security": new Scene("ReturnStarbucks", null, null, "Game Over", levelType.textOnly),
-    "Bloomingdales": new Scene("ReturnStarbucks", null, null, "Buy some clothes", levelType.textOnly),
-    "Manager": new Scene("ReturnStarbucks", null, null, "Game Over", levelType.textOnly),
-    "JeansInterview": new Scene("ReturnStarbucks", null, null, "Game Over", levelType.textOnly),
-    "CheckBack": new Scene("ReturnStarbucks", null, null, "Game Over", levelType.textOnly),
-    "CEO": new Scene("ReturnStarbucks", null, null, "Game Over", levelType.textOnly)
+    "Shopping": new Scene("Shopping", "shopping", "At the mall you think, \"I'm pretty thristy, but it looks like Bloomingdale's is having a huge sale! What should I do first?\"", "Go In", levelType.basic),
+    "Starbucks": new Scene("Starbucks", null, "You order a Caramel Macchiato in honor of Melissa because it is totally her favorite. Unfortunately it's barely sweet at all - and what's the point of buying a caramel macchiato if it isn't sweet??", "Buy some coffee", levelType.textOnly),
+    "ReturnStarbucks": new Scene("ReturnStarbucks", null, "You go up to the counter to return the coffe and the person refuses to make you a new coffee.", "Return the coffee", levelType.textOnly),
+    "Security": new Scene("Security", "security", "You get chased by security and they throw you out of the mall.", "Game Over", levelType.textOnly),
+    "Bloomingdales": new Scene("Bloomingdales", null, "You try on some clothes, but decide you need a smaller size.", "Buy some clothes", levelType.textOnly),
+    "Manager": new Scene("Manager", "manager", "When the manager shows up it is Justin Timberlake.<br>- \"We can make your coffee sweeter, but it still won't be as sweet as me. Here's a coupon for free coffee for the rest of your life.\"", "Game Over", levelType.textOnly),
+    "JeansInterview": new Scene("JeansInterview", null, "When you arrive for your interview you are introduced to the CEO who hires you on the spot because he loves your outfit.", "Wear your jeans to the interview", levelType.textOnly),
+    "CheckBack": new Scene("CheckBack", "justin-bloomingdales", "When the stock boy arrives from the back - surprise! - it's Justin Timberlake.<br>He says the outfit looks great on you, but denim is the best choice for all occasions.", "Ask someone to check in the back", levelType.textOnly),
+    "JobInterview": new Scene("JobInterview", "interview", "You feel like the interview went well, but something wasn't quite right. They say they will call you back in a couple of days to let you know their decision.", "Go In", levelType.textOnly),
+    "OutsideInterview": new Scene("OutsideInterview", "justin-outside", "You go outside and run into Justin Timberlake (literally). He asks what's up? You tell him about the interview and he suggests buying a pair of jeans to wear next time.", "Go outside", levelType.textOnly),
+    "CEO": new Scene("CEO", "justin-timberlake", "And you worked happily ever after <3", "Happily Ever After <3", levelType.textOnly)
 };
 exitArray["Home"] = [
     { title: "Hang out at home then head out to the interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
@@ -164,7 +160,31 @@ exitArray["Starbucks"] = [
     { title: "Take it back and make them put more SUGAR in it!", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "ReturnStarbucks" },
     { title: "Say forget it and go to Bloomingdale's", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Bloomingdales" }
 ];
+exitArray["ReturnStarbucks"] = [
+    { title: "Ask to see the manager", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "Manager" },
+    { title: "Throw coffee against the wall in anger and stomp off", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Security" }
+];
+exitArray["Manager"] = [
+    { title: "You're super psyched and decide to go get your interview clothes", size: buttonSize.twoSquare, position: gameGrid.C1, hasImage: false, scene: "Bloomingdales" },
+    { title: "You decide this has given you confidence to go to the interview without buying new clothes", size: buttonSize.twoSquare, position: gameGrid.C3, hasImage: false, scene: "JobInterview" }
+];
 exitArray["JobInterview"] = [
-    { title: "Job Interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
-    { title: "Go shopping", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
+    { title: "Shake hands and head out", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: "OutsideInterview" }
+];
+exitArray["OutsideInterview"] = [
+    { title: "Better take his advice and get some new threads", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: "Shopping" }
+];
+exitArray["JeansInterview"] = [
+    { title: "Meet the CEO", size: buttonSize.full, position: gameGrid.midCenter, hasImage: false, scene: "CEO" }
+];
+exitArray["Bloomingdales"] = [
+    { title: "You can't find it on the floor, so you ask someone to check the back", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "CheckBack" },
+    { title: "You decide to say forget it and go to starbucks", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Starbucks" }
+];
+exitArray["CheckBack"] = [
+    { title: "Buy new jeans for your interview", size: buttonSize.twoSquare, position: gameGrid.C1, hasImage: false, scene: "JeansInterview" },
+    { title: "Go with your original outfit choice", size: buttonSize.twoSquare, position: gameGrid.C3, hasImage: false, scene: "JobInterview" }
+];
+exitArray["CEO"] = [
+    { title: "", size: buttonSize.full, position: gameGrid.midCenter, hasImage: false, scene: "Home" }
 ];

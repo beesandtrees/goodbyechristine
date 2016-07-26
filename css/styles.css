@@ -18,8 +18,8 @@ h1 {
 .background {
   height: 100vh;
   width: 100vw;
-  background-position: left bottom;
-  background-size: 100vw auto;
+  background-position: center;
+  background-size: cover;
 }
 .infobar {
   color: #333;
@@ -34,16 +34,15 @@ h1 {
 }
 button {
   background: transparent;
-  background-size: 100vw auto;
+  background-size: 100vw 100vh;
   color: #fff;
   cursor: pointer;
   border: none;
   font-size: 1.6rem;
-  font-weight: lighter;
   opacity: 0;
   outline: none;
   outline: 0;
-  padding: 1rem;
+  padding: 2rem 6rem;
   position: fixed;
   text-align: center;
   z-index: 9;
@@ -69,63 +68,57 @@ button:hover {
 }
 
 /* one cell */
-
 .size-1 {
   width: 25vw;
   height: 24vh;
 }
 
 /* two across two down */
-
 .size-2 {
+  font-size: 4rem;
   width: 50vw;
   height: 48vh;
 }
 
 /* three across three down */
-
 .size-3 {
+  font-size: 4rem;
   width: 75vw;
   height: 72vh;
 }
 
 /* one across 2 down */
-
 .size-4 {
   width: 25vw;
   height: 48vh;
 }
 
 /* two across one down */
-
 .size-5 {
   width: 50vw;
   height: 24vh;
 }
 
 /* 100% across one down */
-
 .size-6 {
   width: 100vw;
   height: 24vh;
 }
 
-/* 100% across one down */
-
+/* 100% across two down */
 .size-7 {
+  font-size: 4rem;
   width: 100vw;
   height: 48vh;
 }
 
 /* one across 100% down */
-
 .size-8 {
   width: 25vw;
   height: 96vh;
 }
 
 /* two across 100% down */
-
 .size-9 {
   font-size: 4rem;
   width: 50vw;
@@ -133,14 +126,12 @@ button:hover {
 }
 
 /* INLINE */
-
 .size-10 {
+  display: block;
   font-weight: bold;
-  margin-left: 10px;
   margin-right: 10px;
+  margin-top: 6px;
   text-align: right;
-  float: right;
-  font-size: 14px;
   padding: 0;
   text-transform: uppercase;
   opacity: 1;
@@ -153,7 +144,6 @@ button:hover {
 }
 
 /* TOP ROW */
-
 .pos-0 {
   top: 0;
   left: 0;
