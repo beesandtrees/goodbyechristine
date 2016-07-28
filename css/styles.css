@@ -22,6 +22,7 @@ h1 {
   background-size: cover;
 }
 .infobar {
+  border-bottom: 4px solid #ee369a;
   color: #333;
   display: none;
   font-size: 1.8rem;
@@ -31,6 +32,29 @@ h1 {
   background: white;
   padding: 1rem;
   z-index: 10;
+  min-height: 0;
+  height: auto;
+  transition: height 0.6s;
+}
+.infobar p {
+  padding: 0;
+  margin: 0;
+  line-height: 1.4;
+}
+.expanded {
+  color: #414243;
+  cursor: pointer;
+  width: 100vw;
+  padding: 7rem;
+  min-height: 100vh;
+  font-size: 9vh;
+}
+.expanded p:after {
+  content: ">";
+  color: #ee369a;
+}
+.expanded button {
+  display: none;
 }
 button {
   background: transparent;

@@ -1,4 +1,5 @@
 var mainAppArea = document.getElementById('main'), infoBar = document.getElementById('infoBar'), infoTakeover = document.getElementById('infoTakeover'), clickGrid = document.getElementById('clickGrid');
+infoBar.addEventListener("click", function () { infoBar.classList.remove("expanded"); }, false);
 var buttonSize;
 (function (buttonSize) {
     buttonSize[buttonSize["full"] = 0] = "full";
@@ -54,11 +55,11 @@ var Scene = (function () {
     Scene.prototype.initInfo = function () {
         if (this.title !== null) {
             infoBar.style.display = "block";
-            infoBar.innerHTML = this.title;
+            infoBar.innerHTML = "<p>" + this.title + "</p>";
         }
         else {
             infoBar.style.display = "none";
-            infoTakeover.innerHTML = this.title;
+            infoTakeover.innerHTML = "";
         }
     };
     Scene.prototype.initGridButtons = function () {
@@ -106,6 +107,7 @@ var Scene = (function () {
 function clearScene() {
     mainAppArea.style.backgroundImage = "";
     mainAppArea.classList.remove("textOnly");
+    infoBar.classList.add("expanded");
     clickGrid.innerHTML = "";
     infoTakeover.innerHTML = "";
 }

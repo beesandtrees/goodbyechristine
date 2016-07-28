@@ -3,6 +3,8 @@ var mainAppArea = document.getElementById('main'),
     infoTakeover = document.getElementById('infoTakeover'),
     clickGrid = document.getElementById('clickGrid');
 
+    infoBar.addEventListener("click", function(){infoBar.classList.remove("expanded");}, false);
+
 enum buttonSize {
     full,       // size-0 full grid
     oneCell,    // size-1 one cell
@@ -85,10 +87,10 @@ class Scene {
     initInfo() {
         if (this.title !== null) {
             infoBar.style.display = "block";
-            infoBar.innerHTML = this.title;
+            infoBar.innerHTML = "<p>" + this.title + "</p>";
         } else {
             infoBar.style.display = "none";
-            infoTakeover.innerHTML = this.title;
+            infoTakeover.innerHTML = "";
         }
     }
 
@@ -139,6 +141,7 @@ class Scene {
 function clearScene() {
     mainAppArea.style.backgroundImage = "";
     mainAppArea.classList.remove("textOnly");
+    infoBar.classList.add("expanded");
     clickGrid.innerHTML = "";
     infoTakeover.innerHTML = "";
 }
