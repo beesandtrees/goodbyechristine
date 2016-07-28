@@ -50,7 +50,7 @@ h1 {
   font-size: 9vh;
 }
 .expanded p:after {
-  content: ">";
+  content: " >";
   color: #ee369a;
 }
 .expanded button {
@@ -232,6 +232,20 @@ button:hover {
   top: 48vh;
   right: 0;
   background-position: -75vw -48vh;
+}
+
+.pos-12 {
+  background: rgba(255,255,255,.67);
+  bottom: 0;
+  color: #333;
+  right: 0;
+  background-position: -75vw -48vh;
+  text-align: left;
+  font-size: 3rem;
+}
+button.pos-12:after {
+    content: " >";
+    color: #ee369a;
 }
 
 /* INLINE */

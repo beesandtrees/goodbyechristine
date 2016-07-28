@@ -171,10 +171,10 @@ exitArray["Manager"] = [
     { title: "You decide this has given you confidence to go to the interview without buying new clothes", size: buttonSize.twoSquare, position: gameGrid.C3, hasImage: false, scene: "JobInterview" }
 ];
 exitArray["JobInterview"] = [
-    { title: "Shake hands and head out", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: "OutsideInterview" }
+    { title: "Shake hands and head out", size: buttonSize.oneRow, position: gameGrid.D1, hasImage: false, scene: "OutsideInterview" }
 ];
 exitArray["OutsideInterview"] = [
-    { title: "Better take his advice and get some new threads", size: buttonSize.inline, position: gameGrid.inline, hasImage: false, scene: "Shopping" }
+    { title: "Better take his advice and get some new threads", size: buttonSize.oneRow, position: gameGrid.D1, hasImage: false, scene: "Shopping" }
 ];
 exitArray["JeansInterview"] = [
     { title: "Meet the CEO", size: buttonSize.full, position: gameGrid.midCenter, hasImage: false, scene: "CEO" }
