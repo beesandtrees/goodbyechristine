@@ -174,7 +174,7 @@ function backgroundImage(scene: Scene) {
 var sceneArray = {
     "Home": new Scene(
         "Home",
-        null,
+        "home",
         "Monday morning. You don't have to go to work today! But you do have a job interview.",
         "Start Game",
         levelType.textOnly
@@ -209,7 +209,7 @@ var sceneArray = {
     ),
     "Bloomingdales": new Scene(
         "Bloomingdales",
-        null,
+        "shopping2",
         "You try on some clothes, but decide you need a smaller size.",
         "Buy some clothes",
         levelType.textOnly
@@ -259,8 +259,8 @@ var sceneArray = {
 };
 
 exitArray["Home"] = [
-    { title: "Hang out at home then head out to the interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
-    { title: "Go shopping for new clothes", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
+    { title: "Hang out at home then<br>head out to the interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
+    { title: "Go shopping for<br>new clothes", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
 ];
 exitArray["Shopping"] = [
     { title: "Get a latte before starting the shopping spree", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: true, scene: "Starbucks" },

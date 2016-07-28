@@ -135,12 +135,12 @@ function backgroundImage(scene) {
     }
 }
 var sceneArray = {
-    "Home": new Scene("Home", null, "Monday morning. You don't have to go to work today! But you do have a job interview.", "Start Game", levelType.textOnly),
+    "Home": new Scene("Home", "home", "Monday morning. You don't have to go to work today! But you do have a job interview.", "Start Game", levelType.textOnly),
     "Shopping": new Scene("Shopping", "shopping", "At the mall you think, \"I'm pretty thristy, but it looks like Bloomingdale's is having a huge sale! What should I do first?\"", "Go In", levelType.basic),
     "Starbucks": new Scene("Starbucks", null, "You order a Caramel Macchiato in honor of Melissa because it is totally her favorite. Unfortunately it's barely sweet at all - and what's the point of buying a caramel macchiato if it isn't sweet??", "Buy some coffee", levelType.textOnly),
     "ReturnStarbucks": new Scene("ReturnStarbucks", null, "You go up to the counter to return the coffe and the person refuses to make you a new coffee.", "Return the coffee", levelType.textOnly),
     "Security": new Scene("Security", "security", "You get chased by security and they throw you out of the mall.", "Game Over", levelType.textOnly),
-    "Bloomingdales": new Scene("Bloomingdales", null, "You try on some clothes, but decide you need a smaller size.", "Buy some clothes", levelType.textOnly),
+    "Bloomingdales": new Scene("Bloomingdales", "shopping2", "You try on some clothes, but decide you need a smaller size.", "Buy some clothes", levelType.textOnly),
     "Manager": new Scene("Manager", "manager", "When the manager shows up it is Justin Timberlake.<br>- \"We can make your coffee sweeter, but it still won't be as sweet as me. Here's a coupon for free coffee for the rest of your life.\"", "Game Over", levelType.textOnly),
     "JeansInterview": new Scene("JeansInterview", null, "When you arrive for your interview you are introduced to the CEO who hires you on the spot because he loves your outfit.", "Wear your jeans to the interview", levelType.textOnly),
     "CheckBack": new Scene("CheckBack", "justin-bloomingdales", "When the stock boy arrives from the back - surprise! - it's Justin Timberlake.<br>He says the outfit looks great on you, but denim is the best choice for all occasions.", "Ask someone to check in the back", levelType.textOnly),
@@ -149,8 +149,8 @@ var sceneArray = {
     "CEO": new Scene("CEO", "justin-timberlake", "And you worked happily ever after <3", "Happily Ever After <3", levelType.textOnly)
 };
 exitArray["Home"] = [
-    { title: "Hang out at home then head out to the interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
-    { title: "Go shopping for new clothes", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
+    { title: "Hang out at home then<br>head out to the interview", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: false, scene: "JobInterview" },
+    { title: "Go shopping for<br>new clothes", size: buttonSize.twoCol, position: gameGrid.A3, hasImage: false, scene: "Shopping" }
 ];
 exitArray["Shopping"] = [
     { title: "Get a latte before starting the shopping spree", size: buttonSize.twoCol, position: gameGrid.A1, hasImage: true, scene: "Starbucks" },
