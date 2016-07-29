@@ -20,7 +20,8 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-        loadScene(sceneArray["Home"]);        
+        checkHash();
+        window.onhashchange = checkHash;
     },
     // Bind Event Listeners
     //
@@ -44,8 +45,6 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
     }
 };
 
